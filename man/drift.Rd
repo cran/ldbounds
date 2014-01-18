@@ -32,7 +32,7 @@ drift(za = -zb, zb, t, t2 = t, pow = NULL, drft = NULL,
   and Lan.  It has some advantages, like making use of probability
   distributions in R.  Only one of \code{pow}, \code{drft}, and
   \code{conf} is to be specified and \code{zval} is only used in the last
-  case. 
+  case.
 }
 \value{
      'drift' returns an object of 'class' '"drift"'.
@@ -61,7 +61,7 @@ drift(za = -zb, zb, t, t2 = t, pow = NULL, drft = NULL,
   \item{final.zvalue}{the final Z statistic, if given.}
   \item{conf.interval}{the confidence interval for drift, if \code{conf}
   and \code{zval} are given.}
-  
+
 }
 \references{Reboussin, D. M., DeMets, D. L., Kim, K. M., and Lan,
   K. K. G. (2000) Computations for group sequential boundaries using the
@@ -78,7 +78,7 @@ drift(za = -zb, zb, t, t2 = t, pow = NULL, drft = NULL,
   for clinical trials. \emph{Biometrika}, 70:659-63.
 
 }
-\author{Charlie Casper \email{casper@stat.wisc.edu} and Oscar A. Perez \email{perez@stat.wisc.edu}}
+\author{Charlie Casper \email{charlie.casper@hsc.utah.edu} and Oscar A. Perez}
 
 \seealso{Generic functions \code{\link{summary.drift}} and
   \code{\link{plot.drift}}.

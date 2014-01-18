@@ -7,11 +7,8 @@
   'summary' method for class '"bounds"'.
 }
 \usage{
-## S3 method for class '"bounds"'
-summary.bounds(object, ...)
-
-## S3 method for class '"summary.bounds"'
-print.summary.bounds(x, digit = 5, ...)
+\method{summary}{bounds}(object, ...)
+\method{print}{summary.bounds}(x, digit = 5, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -42,7 +39,7 @@ print.summary.bounds(x, digit = 5, ...)
   for clinical trials. \emph{Biometrika}, 70:659-63.
 
 }
-\author{Oscar A. Perez \email{perez@stat.wisc.edu}}
+\author{Oscar A. Perez and T. Charles Casper \email{charlie.casper@hsc.utah.edu}}
 \seealso{\code{\link{bounds}} for computation of boundaries using alpha
   spending function method.  \code{\link{drift}} for exit probabilities given boundaries or drift
   (effect) or confidence interval given power.

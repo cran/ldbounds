@@ -8,19 +8,16 @@
       Plot for Group Sequential Boundaries}
 \description{
       Plot of the sequential boundaries for objects of class '"bounds"' or '"drift"'. }
-\usage{
-## S3 method for class '"bounds"'.
-plot.bounds(x, main = NULL, xlab = NULL, ylab = NULL, ...)
-
-## S3 method for class '"drift"'.
-plot.drift(x, main = NULL, xlab = NULL, ylab = NULL, ...)
+    \usage{
+\method{plot}{bounds}(x, main = NULL, xlab = NULL, ylab = NULL, ...)
+\method{plot}{drift}(x, main = NULL, xlab = NULL, ylab = NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{an object of class '"bounds"' or '"drift"'.}
   \item{main}{an overall title for the plot: see \code{title}.}
   \item{xlab}{a title for the x axis: see \code{title}.}
-  \item{ylab}{a title for the x axis: see \code{title}.}
+  \item{ylab}{a title for the y axis: see \code{title}.}
   \item{...}{graphical parameters can be given as arguments to \code{plot}.}
 }
 \references{Reboussin, D. M., DeMets, D. L., Kim, K. M., and Lan,
@@ -38,8 +35,7 @@ plot.drift(x, main = NULL, xlab = NULL, ylab = NULL, ...)
   for clinical trials. \emph{Biometrika}, 70:659-63.
 
 }
-\author{Charlie Casper \email{casper@stat.wisc.edu} and Oscar A. Perez
-\email{perez@stat.wisc.edu}}
+\author{Charlie Casper \email{charlie.casper@hsc.utah.edu} and Oscar A. Perez}
 
 
 \seealso{Generic functions \code{\link{summary.bounds}} and \code{\link{summary.drift}},

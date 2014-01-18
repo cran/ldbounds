@@ -81,7 +81,7 @@ bounds(t, t2 = t, iuse = 1, asf = NULL, alpha = 0.05,
   \item{upper.bounds}{the vector of upper boundaries calculated.}
   \item{exit.pr}{the vector of cumulative exit probabilities at each analysis.}
   \item{diff.pr}{the vector of exit probabilities accumulated at each analysis.}
-  
+
 }
 \references{Reboussin, D. M., DeMets, D. L., Kim, K. M., and Lan,
   K. K. G. (2000) Computations for group sequential boundaries using the
@@ -98,7 +98,7 @@ bounds(t, t2 = t, iuse = 1, asf = NULL, alpha = 0.05,
   for clinical trials. \emph{Biometrika}, 70:659-63.
 
 }
-\author{Charlie Casper \email{casper@stat.wisc.edu} and Oscar A. Perez \email{perez@stat.wisc.edu}}
+\author{Charlie Casper \email{charlie.casper@hsc.utah.edu} and Oscar A. Perez}
 
 
 \seealso{Generic functions \code{\link{summary.bounds}} and
@@ -120,6 +120,6 @@ bounds(t, t2 = t, iuse = 1, asf = NULL, alpha = 0.05,
    t2 <- c(56,77,126,177,247,318)
    power.fam <- bounds(t,t2,iuse=c(3,3),alpha=c(0.025,0.025))
    summary(power.fam)
-   
+
 }
 \keyword{misc}
