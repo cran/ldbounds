@@ -1,39 +1,44 @@
-\name{bounds}
-\alias{bounds}
+\name{ldBounds}
+\alias{ldBounds}
 
-%- Also NEED an '\alias' for EACH other topic documented here.
 
 \title{Group Sequential Boundaries Using Spending Functions}
 \description{
-  'bounds' determines group sequential boundaries for interim analyses
+  'ldBounds' determines group sequential boundaries for interim analyses
   of accumulating data in clinical trials using the Lan-DeMets alpha
   spending function method.  These can be used as guidelines for early
   stopping of the trial.
 }
 \usage{
-bounds(t, t2 = t, iuse = 1, asf = NULL, alpha = 0.05,
-       phi = rep(1, length(alpha)), ztrun = rep(8, length(alpha)))
+ldBounds(t, t2, iuse=1, asf=NULL, alpha=0.05, phi=rep(1,length(alpha)),
+       sides=2, ztrun=rep(Inf,length(alpha)))
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{t}{the vector of analysis times, which must be increasing and in
+  \item{t}{a vector of analysis times or a number of analysis times.  If
+    the number of analyses is specified, they are assumed to be equally
+    spaced. Analysis times must be increasing and in
     (0,1].}
   \item{t2}{the second time scale, usually in terms of amount of
-    accumulating information.  By default, same as \code{t}.}
-  \item{iuse}{a vector of the type of alpha spending function(s) to
-    use for lower and upper bounds, respectively (in the two-sided
-    case).  Details of specification are given below.}
+    accumulating information.  By default, same as \code{t} or the
+    analysis times corresponding to \code{t} looks.}
+  \item{iuse}{the type of alpha spending function(s) to use for bounds.
+    If two-sided bounds are calculated and \code{iuse} is a single
+    value, the same type will be used for each of the two boundaries.
+    If a vector of length two is given, the two values will be used for
+    lower and upper bounds, respectively.  Details of specification are given below.}
   \item{asf}{a list of one or two functions to be used as alpha spending
   function(s).  Used with \code{iuse}=5 (See below).}
-  \item{alpha}{a vector of type I errors.  In two-sided situations,
-    these correspond to the amount allocated to the lower and upper
+  \item{alpha}{Type I error(s).  In two-sided situations, alpha can be a
+    single value, indicating symmetric type I error control (half of
+    alpha for each boundary).  If a vector of length two is given,
+    this corresponds to the amount allocated to the lower and upper
     boundaries, respectively.  The total alpha must be greater than 0
     and less than or equal to 1.}
   \item{phi}{a vector of values used when \code{iuse}=3 or 4 (See
     below).}
+  \item{sides}{Designates one- or two-sided bounds.}
   \item{ztrun}{a vector of values specifying where to truncate lower and
-  upper boundaries, respectively.  Default is c(-8,8) (or just 8 for
-  one-sided), which is essentially no truncation.}
+  upper boundaries, respectively.  Default is no truncation.}
 }
 \details{
   This is based on a Fortran program, 'ld98', by Reboussin, DeMets, Kim,
@@ -46,15 +51,11 @@ bounds(t, t2 = t, iuse = 1, asf = NULL, alpha = 0.05,
   A value of 3 is the power family.  Here, the spending function is
   \eqn{\alpha t^{\phi}}, where \eqn{\phi} must be greater than 0.  A value of 4 is the
   Hwang-Shih-DeCani family, with spending function
-  \eqn{\alpha (1-e^{-\phi t})/(1-e^{-\phi})}, where \eqn{phi} cannot be 0.
-
-  \code{iuse} and \code{alpha} must have the same length.  If
-  \code{alpha} has length 2 and \code{phi} has length 1, the same value
-  of \code{phi} will be used for the upper and the lower boundaries.
+  \eqn{\alpha (1-e^{-\phi t})/(1-e^{-\phi})}, where \eqn{\phi} cannot be 0.
 
   With \code{iuse}=5, the user will specify any alpha spending function
-  as \code{asf}.  Such a function asf() must be of class 'function' and
-  must satisfy asf(0)=0 and asf(1)=1 and must be strictly increasing.
+  as \code{asf}.  Such a function asf() must be of class 'function',
+  satisfy asf(1)=1, and be strictly increasing.
   Currently, this option cannot be used for one side of the boundary
   with one of the other options for the other side.  In other words, the
   user may define one spending function for a one-sided boundary or two
@@ -63,12 +64,15 @@ bounds(t, t2 = t, iuse = 1, asf = NULL, alpha = 0.05,
   4.
 }
 \value{
-     'bounds' returns an object of 'class' '"bounds"'.
+     'ldBounds' returns an object of 'class' '"ldBounds"'.
 
-     An object of class '"bounds"' is a list containing the following
+     An object of class '"ldBounds"' is a list containing the following
      components:
   \item{bounds.type}{the type of bounds: 1 is 'one-sided', 2 is
-    'two-sided symmetric', and 3 is 'two-sided asymmetric'.}
+    'two-sided symmetric', and 3 is 'two-sided asymmetric'. For
+     non-alpha-spending function boundaries (see 'commonbounds'
+     function) 4, 5, and 6 correspond, respectively, to types 1 through
+     3 above.}
   \item{spending.type}{the type(s) of spending function.  A descriptive
     version of the value(s) used for \code{iuse}}
   \item{time}{the original time scale.}
@@ -80,7 +84,11 @@ bounds(t, t2 = t, iuse = 1, asf = NULL, alpha = 0.05,
     ignored if one-sided.}
   \item{upper.bounds}{the vector of upper boundaries calculated.}
   \item{exit.pr}{the vector of cumulative exit probabilities at each analysis.}
-  \item{diff.pr}{the vector of exit probabilities accumulated at each analysis.}
+  \item{diff.pr}{the vector of exit probabilities accumulated at each
+    analysis.}
+  \item{nom.alpha}{the nominal alpha level to be used at each analysis
+     (i.e., bound has been crossed if the p-value at that time is less
+     than this value).  Not given for two-sided asymmetric boundaries.}
 
 }
 \references{Reboussin, D. M., DeMets, D. L., Kim, K. M., and Lan,
@@ -98,27 +106,32 @@ bounds(t, t2 = t, iuse = 1, asf = NULL, alpha = 0.05,
   for clinical trials. \emph{Biometrika}, 70:659-63.
 
 }
-\author{Charlie Casper \email{charlie.casper@hsc.utah.edu} and Oscar A. Perez}
+\author{Charlie Casper \email{charlie.casper@hsc.utah.edu}, Thomas Cook \email{cook@biostat.wisc.edu}, and Oscar A. Perez}
 
 
-\seealso{Generic functions \code{\link{summary.bounds}} and
-  \code{\link{plot.bounds}}.
+\seealso{Generic functions \code{\link{summary.ldBounds}} and
+  \code{\link{plot.ldPower}}.
 
-  \code{\link{drift}} for exit probabilities given boundaries or drift
-  (effect) or confidence interval given power.
+  \code{\link{ldPower}} for exit probabilities given boundaries OR drift
+  (effect) given power OR confidence interval OR adjusted p-value.
+
+  \code{\link{commonbounds}} for some commonly used boundaries that do not use alpha spending.
 }
 
 \examples{
    ## From Reboussin, et al. (2000)
 
-   t <- seq(0.2,1,length=5)
-   obf.bd <- bounds(t,iuse=c(1,1),alpha=c(0.025,0.025))
-   summary(obf.bd)
-   plot(obf.bd)
+   #t <- seq(0.2,1,length=5)
+   #obf.bd <- ldBounds(t)
+   #summary(obf.bd)
+   #plot(obf.bd)
+
+   # Equivalent bounds to above
+   obf.bd2 <- ldBounds(5)
 
    t <- c(0.2292,0.3333,0.4375,0.5833,0.7083,0.8333)
    t2 <- c(56,77,126,177,247,318)
-   power.fam <- bounds(t,t2,iuse=c(3,3),alpha=c(0.025,0.025))
+   power.fam <- ldBounds(t,t2,iuse=3,alpha=0.05)
    summary(power.fam)
 
 }

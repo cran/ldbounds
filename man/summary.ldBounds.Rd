@@ -1,26 +1,26 @@
-\name{summary.bounds}
-\alias{summary.bounds}
-\alias{print.summary.bounds}
-%- Also NEED an '\alias' for EACH other topic documented here.
+\name{summary.ldBounds}
+\alias{summary.ldBounds}
+\alias{print.summary.ldBounds}
+
 \title{Summary for Group Sequential Boundaries}
 \description{
-  'summary' method for class '"bounds"'.
+  'summary' method for class '"ldBounds"'.
 }
 \usage{
-\method{summary}{bounds}(object, ...)
-\method{print}{summary.bounds}(x, digit = 5, ...)
+\method{summary}{ldBounds}(object, digit = 5, ...)
+\method{print}{summary.ldBounds}(x, digit = 5, ...)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
-  \item{object}{an object of class '"bounds"', a result of a call to
-          \code{bounds}.}
-  \item{x}{an object of class '"summary.bounds"', a result of a
-          call to \code{summary.bounds}.}
+  \item{object}{an object of class '"ldBounds"', a result of a call to
+          \code{ldBounds} or \code{commonbounds}.}
+  \item{x}{an object of class '"summary.ldBounds"', a result of a
+          call to \code{summary.ldBounds}.}
   \item{digit}{the number of significant digits to use when printing.}
   \item{...}{further arguments passed to or from other methods.}
 }
 \value{
-     The function 'summary.bounds' returns a list of summary
+     The function 'summary.ldBounds' returns a list of summary
      values of the group sequential boundary calculations given in
      'object'.
    }
@@ -39,14 +39,13 @@
   for clinical trials. \emph{Biometrika}, 70:659-63.
 
 }
-\author{Oscar A. Perez and T. Charles Casper \email{charlie.casper@hsc.utah.edu}}
-\seealso{\code{\link{bounds}} for computation of boundaries using alpha
-  spending function method.  \code{\link{drift}} for exit probabilities given boundaries or drift
-  (effect) or confidence interval given power.
+\author{T. Charles Casper \email{charlie.casper@hsc.utah.edu} and Oscar A. Perez}
+\seealso{\code{\link{ldBounds}} for computation of boundaries using alpha
+  spending function method.  \code{\link{ldPower}} for exit probabilities given boundaries OR drift
+  (effect) given power OR confidence interval OR adjusted p-value.}
 
-}
 \examples{
-## See function 'bounds'
+## See function 'ldBounds'
 
 }
 \keyword{misc}
