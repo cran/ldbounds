@@ -1,5 +1,5 @@
 #' @export
-"condpower" <- function(z.crit,z.val,accr,outcome.type,par.c,par.t,N,sigma=NULL){
+"condpower" <- function(z.crit,z.val,accr,outcome.type,par.c,par.t=NULL,N,sigma=NULL){
     if (z.crit<=0){
         stop("The final critical value must be positive.")
     }
@@ -25,7 +25,7 @@
     }
     if (outcome.type=="surv"){
         if ({par.c<=0}|{par.t<=0}|{par.c<par.t}){
-            stop("Hazards must be positive and control hazard must be less than treatment hazard.")
+            stop("Hazards must be positive and control hazard must be greater than or equal to treatment hazard.")
         }
         if (is.null(par.t)){
             par.t <- 1

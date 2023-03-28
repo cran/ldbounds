@@ -1,8 +1,8 @@
 Package: ldbounds
 Type: Package
 Title: Lan-DeMets Method for Group Sequential Boundaries
-Version: 2.0.0
-Date: 2022-02-17
+Version: 2.0.1
+Date: 2023-03-27
 Author: Charlie Casper, Thomas Cook and Oscar A. Perez.  Based on FORTRAN
         program ld98.
 Maintainer: Charlie Casper <charlie.casper@hsc.utah.edu>
@@ -15,6 +15,6 @@ License: GPL (>= 2)
 Suggests: R.rsp
 VignetteBuilder: R.rsp
 NeedsCompilation: no
-Packaged: 2022-02-18 22:25:08 UTC; tcasper
+Packaged: 2023-03-28 21:27:17 UTC; tcasper
 Repository: CRAN
-Date/Publication: 2022-02-24 12:00:05 UTC
+Date/Publication: 2023-03-28 22:10:09 UTC

@@ -83,13 +83,12 @@
     }
   }
   if (type<=2){
-    ld <- landem(t,t2,sides,iuse[1],asf[[1]],alpha[1],phi[1],ztrun[1])
+    ld <- landem(t,t2,sides,iuse[1],asf[[1]],sum(alpha),phi[1],ztrun[1])
     ubnd <- ld$upper.bounds
     lbnd <- ld$lower.bounds
     epr <- ld$exit.pr
     dpr <- ld$diff.pr
     spend <- ld$spend
-    if (type==2) alpha <- c(alpha/2,alpha/2)
   }
   else{
     ld1 <- landem(t,t2,1,iuse[1],asf[[1]],alpha[1],phi[1],ztrun[1])

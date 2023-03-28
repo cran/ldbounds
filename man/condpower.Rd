@@ -9,7 +9,7 @@
   evaluate the futility of an ongoing trial.
 }
 \usage{
-condpower(z.crit, z.val, accr, outcome.type, par.c, par.t, N, sigma=NULL)
+condpower(z.crit, z.val, accr, outcome.type, par.c, par.t=NULL, N, sigma=NULL)
 }
 \arguments{
   \item{z.crit}{the critical value (on the z-value scale) that will be
@@ -34,7 +34,7 @@ condpower(z.crit, z.val, accr, outcome.type, par.c, par.t, N, sigma=NULL)
     survival outcome, this 
     is the hazard in the control group or the hazard ratio.}
   \item{par.t}{the hypothesized parameter value in the experimental 
-    group.}
+    group. Leave null if par.c is the difference in means or the hazard ratio.}
   \item{N}{the total target sample size (or number of events for survival) in
     the trial.}
   \item{sigma}{the assumed standard deviation (continuous outcome).}
