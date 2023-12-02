@@ -1,3 +1,11 @@
+# ldbounds 2.0.2
+
+* Fixed documentation
+
+
+---
+
+
 # ldbounds 2.0.1
 
 * Bug fixes

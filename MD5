@@ -1,6 +1,6 @@
-3e5e640f5c2d7094193538e002560d75 *DESCRIPTION
+f891cc6b99a945abad4738bc721b3def *DESCRIPTION
 6ad276f9556978c2e9d6f98a230e4b62 *NAMESPACE
-dda131ee72f847cf53e12a898f1c562d *NEWS.md
+c7bd3116feeb056add6f95af11802903 *NEWS.md
 7624f20c22e9358f8dc45c1eef934ec1 *R/adj.p.R
 9ecf75de7dad47dbcbadac45416779a2 *R/adrift.R
 5fd9a82396e70188d97d930bf2d13117 *R/alphas.R
@@ -30,13 +30,13 @@ f3dbe84a4aa69cf80e7bd732f4c508e7 *R/summary.ldBounds.R
 015e1ea70ff291f6f7d9385cf9a7c4e7 *R/summary.ldPower.R
 6342adbb764bf8f583cd9bc8c17fc2c0 *R/thetaeffect.R
 9ee6633c28409030f44994feda53d382 *build/vignette.rds
-eec185a2cdbd426d6facf0e9a938d50b *inst/doc/ldbounds.pdf
+1535cdd1a6c3024d26657da21131be43 *inst/doc/ldbounds.pdf
 4a7e8bb5d0e0332735a4055a7edefa23 *inst/doc/ldbounds.pdf.asis
 d2b894fa315ba72dd6f8def6c39633fa *man/commonbounds.Rd
 452cc9844d032cad3ea7d338d6029b30 *man/condpower.Rd
 5fb65c86e63f3cce7d09e722c63c834f *man/lastbound.Rd
 46156a340c27b6d7e84bfc5bb37f3e5e *man/ldBounds-defunct.Rd
-79c17c29e20755fd238579abe2fb91f5 *man/ldBounds.Rd
+bffca26821a7d95904e1053129df99a5 *man/ldBounds.Rd
 fb759a16ade5f8ed047f2ac0560569d6 *man/ldPower.Rd
 f279a0d1091243dd4262647ea2f7d5c7 *man/plot.ldPower.Rd
 fdc5cd2f361c988845f46c7d3b4af650 *man/summary.ldBounds.Rd

@@ -33,7 +33,8 @@ ldBounds(t, t2, iuse=1, asf=NULL, alpha=0.05, phi=rep(1,length(alpha)),
     alpha for each boundary).  If a vector of length two is given,
     this corresponds to the amount allocated to the lower and upper
     boundaries, respectively.  The total alpha must be greater than 0
-    and less than or equal to 1.}
+    and less than or equal to 1.  When \code{iuse}=5, any alpha
+    specified is ignored (see details).}
   \item{phi}{a vector of values used when \code{iuse}=3 or 4 (See
     below).}
   \item{sides}{Designates one- or two-sided bounds.}
@@ -55,7 +56,11 @@ ldBounds(t, t2, iuse=1, asf=NULL, alpha=0.05, phi=rep(1,length(alpha)),
 
   With \code{iuse}=5, the user will specify any alpha spending function
   as \code{asf}.  Such a function asf() must be of class 'function',
-  satisfy asf(1)=1, and be strictly increasing.
+  satisfy asf(t)\eqn{\leq}1 for t in (0,1), and be strictly increasing. Alpha
+  will be derived as asf(1).  If two spending functions are specified,
+  they represent the lower and upper boundary spending functions,
+  respectively, with the values at time 1 designating the lower and
+  upper alphas, respectively.  
   Currently, this option cannot be used for one side of the boundary
   with one of the other options for the other side.  In other words, the
   user may define one spending function for a one-sided boundary or two
